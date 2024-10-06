@@ -21,12 +21,12 @@ const Sidebar = ({ isExpanded }) => {
     useEffect(() => {
         if (location.pathname === '/') {
             toggleDropdown('dashboard')// Keep dropdown open
-        } 
+        }
         else if (location.pathname === '/about-us' || location.pathname === '/contact-us') {
             // setIsPage(true); // Keep dropdown open
             toggleDropdown('page')
         }
-        else if (location.pathname === '/blog' ) {
+        else if (location.pathname === '/blog') {
             toggleDropdown('blog')
         }
     }, [location.pathname]);
@@ -180,34 +180,34 @@ const Sidebar = ({ isExpanded }) => {
                                                     </button>
                                                     {/* Sub Dropdown List - Blog [Pages] */}
                                                     {activeDropdown === 'blog' && (
-                                                    <div className={`ms-5 transition-all duration-300 ease-in-out `}>
-                                                        <ul >
-                                                            <li className="hover:bg-[#021c50] hover:text-white px-2 py-1 rounded-md">
-                                                                <Link to="/blogs" className="">
-                                                                    <div className="flex items-center">
-                                                                        <div><RxDot /></div>
-                                                                        <div className="ml-2" >Blogs</div>
-                                                                    </div>
-                                                                </Link>
-                                                            </li>
-                                                            <li className="hover:bg-[#021c50] hover:text-white px-2 py-1 rounded-md">
-                                                                <Link to="/about-us" className="">
-                                                                    <div className="flex items-center">
-                                                                        <div><RxDot /></div>
-                                                                        <div className="ml-2" >Blog my</div>
-                                                                    </div>
-                                                                </Link>
-                                                            </li>
-                                                            <li className="hover:bg-[#021c50] hover:text-white px-2 py-1 rounded-md">
-                                                                <Link to="/about-us" className="">
-                                                                    <div className="flex items-center">
-                                                                        <div><RxDot /></div>
-                                                                        <div className="ml-2" >Blog india</div>
-                                                                    </div>
-                                                                </Link>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                        <div className={`ms-5 transition-all duration-300 ease-in-out `}>
+                                                            <ul >
+                                                                <li className="hover:bg-[#021c50] hover:text-white px-2 py-1 rounded-md">
+                                                                    <Link to="/blogs" className="">
+                                                                        <div className="flex items-center">
+                                                                            <div><RxDot /></div>
+                                                                            <div className="ml-2" >Blogs</div>
+                                                                        </div>
+                                                                    </Link>
+                                                                </li>
+                                                                <li className="hover:bg-[#021c50] hover:text-white px-2 py-1 rounded-md">
+                                                                    <Link to="/about-us" className="">
+                                                                        <div className="flex items-center">
+                                                                            <div><RxDot /></div>
+                                                                            <div className="ml-2" >Blog my</div>
+                                                                        </div>
+                                                                    </Link>
+                                                                </li>
+                                                                <li className="hover:bg-[#021c50] hover:text-white px-2 py-1 rounded-md">
+                                                                    <Link to="/about-us" className="">
+                                                                        <div className="flex items-center">
+                                                                            <div><RxDot /></div>
+                                                                            <div className="ml-2" >Blog india</div>
+                                                                        </div>
+                                                                    </Link>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
                                                     )}
                                                 </li>
                                             </ul>
@@ -235,7 +235,7 @@ const Sidebar = ({ isExpanded }) => {
                                 <div className=''>
                                     {/* Heading - Task */}
                                     <div className="ml-1 " >
-                                        <button className="w-full p-2 h-10 hover:bg-[#021c50] hover:text-white rounded-md " onClick={() => { isTask ? setIsTask(false) : setIsTask(true) }}>
+                                        <button className="w-full p-2 h-10 hover:bg-[#021c50] hover:text-white rounded-md " onClick={() => toggleDropdown('task')}>
                                             <div className="flex items-center  justify-between">
                                                 <div className="col-span-3 felx items-center">
                                                     <FaHome className="inline-block " />
@@ -243,11 +243,10 @@ const Sidebar = ({ isExpanded }) => {
 
                                                 </div>
                                                 <div className="">
-                                                    {(!isTask) && (
-                                                        <MdKeyboardArrowRight size={20} />
-                                                    )}
-                                                    {(isTask) && (
+                                                    {activeDropdown === 'task' ? (
                                                         <MdKeyboardArrowDown size={20} />
+                                                    ) : (
+                                                        <MdKeyboardArrowRight size={20} />
                                                     )}
                                                 </div>
                                             </div>
@@ -255,53 +254,54 @@ const Sidebar = ({ isExpanded }) => {
                                     </div>
 
                                     {/* Dropdown List - Task */}
-                                    <div className={`ms-5 transition-all duration-300 ease-in-out ${isTask ? '' : 'hidden'}`}>
-                                        <ul >
-                                            <li className="hover:bg-[#021c50] hover:text-white px-2 py-1.5 rounded-md">
-                                                <Link to="/about-us" className="">
-                                                    <div className="flex items-center">
-                                                        <div><RxDot /></div>
-                                                        <div className="ml-2" >About us</div>
-                                                    </div>
-                                                </Link>
-                                            </li>
-                                            <li className="hover:bg-[#021c50] hover:text-white px-2 py-1.5 rounded-md">
-                                                <Link to="/about-us" className="">
-                                                    <div className="flex items-center">
-                                                        <div><RxDot /></div>
-                                                        <div className="ml-2" >About us</div>
-                                                    </div>
-                                                </Link>
-                                            </li>
-                                            <li className="hover:bg-[#021c50] hover:text-white px-2 py-1.5 rounded-md">
-                                                <Link to="/about-us" className="">
-                                                    <div className="flex items-center">
-                                                        <div><RxDot /></div>
-                                                        <div className="ml-2" >About us</div>
-                                                    </div>
-                                                </Link>
-                                            </li>
+                                    {activeDropdown === 'task' && (
+                                        <div className={`ms-5 transition-all duration-300 ease-in-out`}>
+                                            <ul >
+                                                <li className="hover:bg-[#021c50] hover:text-white px-2 py-1.5 rounded-md">
+                                                    <Link to="/about-us" className="">
+                                                        <div className="flex items-center">
+                                                            <div><RxDot /></div>
+                                                            <div className="ml-2" >About us</div>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="hover:bg-[#021c50] hover:text-white px-2 py-1.5 rounded-md">
+                                                    <Link to="/about-us" className="">
+                                                        <div className="flex items-center">
+                                                            <div><RxDot /></div>
+                                                            <div className="ml-2" >About us</div>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="hover:bg-[#021c50] hover:text-white px-2 py-1.5 rounded-md">
+                                                    <Link to="/about-us" className="">
+                                                        <div className="flex items-center">
+                                                            <div><RxDot /></div>
+                                                            <div className="ml-2" >About us</div>
+                                                        </div>
+                                                    </Link>
+                                                </li>
 
-                                        </ul>
-                                    </div>
+                                            </ul>
+                                        </div>
+                                    )}
                                 </div>
                                 {/* Menu- Dropdown & List  */}
                                 <div className=''>
-                                    {/* Heading - Task */}
+                                    {/* Heading - Form */}
                                     <div className="ml-1 " >
-                                        <button className="w-full p-2 h-10 hover:bg-[#021c50] hover:text-white rounded-md " onClick={() => { isForm ? setIsFrom(false) : setIsForm(true) }}>
+                                        <button className="w-full p-2 h-10 hover:bg-[#021c50] hover:text-white rounded-md " onClick={() => toggleDropdown('form')}>
                                             <div className="flex items-center  justify-between">
                                                 <div className="col-span-3 felx items-center">
                                                     <FaHome className="inline-block " />
-                                                    <span className='ml-3 relative top-0.5'>From</span>
+                                                    <span className='ml-3 relative top-0.5'>Form</span>
 
                                                 </div>
                                                 <div className="">
-                                                    {(!isForm) && (
-                                                        <MdKeyboardArrowRight size={20} />
-                                                    )}
-                                                    {(isForm) && (
+                                                    {(activeDropdown === 'form') ? (
                                                         <MdKeyboardArrowDown size={20} />
+                                                    ) : (
+                                                        <MdKeyboardArrowRight size={20} />
                                                     )}
                                                 </div>
                                             </div>
@@ -309,35 +309,37 @@ const Sidebar = ({ isExpanded }) => {
                                     </div>
 
                                     {/* Dropdown List - Task */}
-                                    <div className={`ms-5 transition-all duration-300 ease-in-out ${isForm ? '' : 'hidden'}`}>
-                                        <ul >
-                                            <li className="hover:bg-[#021c50] hover:text-white px-2 py-1.5 rounded-md">
-                                                <Link to="/about-us" className="">
-                                                    <div className="flex items-center">
-                                                        <div><RxDot /></div>
-                                                        <div className="ml-2" >Input</div>
-                                                    </div>
-                                                </Link>
-                                            </li>
-                                            <li className="hover:bg-[#021c50] hover:text-white px-2 py-1.5 rounded-md">
-                                                <Link to="/about-us" className="">
-                                                    <div className="flex items-center">
-                                                        <div><RxDot /></div>
-                                                        <div className="ml-2" >Dropdown</div>
-                                                    </div>
-                                                </Link>
-                                            </li>
-                                            <li className="hover:bg-[#021c50] hover:text-white px-2 py-1.5 rounded-md">
-                                                <Link to="/about-us" className="">
-                                                    <div className="flex items-center">
-                                                        <div><RxDot /></div>
-                                                        <div className="ml-2" >Form</div>
-                                                    </div>
-                                                </Link>
-                                            </li>
+                                    {activeDropdown === 'form' && (
+                                        <div className={`ms-5 transition-all duration-300 ease-in-out `}>
+                                            <ul >
+                                                <li className="hover:bg-[#021c50] hover:text-white px-2 py-1.5 rounded-md">
+                                                    <Link to="/about-us" className="">
+                                                        <div className="flex items-center">
+                                                            <div><RxDot /></div>
+                                                            <div className="ml-2" >Input</div>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="hover:bg-[#021c50] hover:text-white px-2 py-1.5 rounded-md">
+                                                    <Link to="/about-us" className="">
+                                                        <div className="flex items-center">
+                                                            <div><RxDot /></div>
+                                                            <div className="ml-2" >Dropdown</div>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="hover:bg-[#021c50] hover:text-white px-2 py-1.5 rounded-md">
+                                                    <Link to="/about-us" className="">
+                                                        <div className="flex items-center">
+                                                            <div><RxDot /></div>
+                                                            <div className="ml-2" >Form</div>
+                                                        </div>
+                                                    </Link>
+                                                </li>
 
-                                        </ul>
-                                    </div>
+                                            </ul>
+                                        </div>
+                                    )}
                                 </div>
                                 {/* Menu- Dropdown & List  */}
                                 <div className=''>
